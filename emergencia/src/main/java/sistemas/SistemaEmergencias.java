@@ -35,6 +35,8 @@ public class SistemaEmergencias {
         }
 
         extracted(emergencia, servicio);
+        emergencia.setEstado("Atendida"); // Cambiar el estado a "Atendida"
+        System.out.println("Emergencia atendida: " + emergencia);
     }
 
     private void extracted(Emergencia emergencia, ServicioEmergencia servicio) {
@@ -43,7 +45,7 @@ public class SistemaEmergencias {
 
     public void mostrarEstadisticas() {
         System.out.println("Estadísticas del día:");
-        System.out.println("Emergencias atendidas: " + emergencias.size());
+        System.out.println("Emergencias registradas: " + emergencias.size());
         System.out.println("Camiones de bomberos disponibles: " + bomberos.getCamionesDisponibles());
         System.out.println("Ambulancias disponibles: " + ambulancia.getAmbulanciasDisponibles());
         System.out.println("Unidades policiales disponibles: " + policia.getUnidadesDisponibles());
@@ -51,18 +53,6 @@ public class SistemaEmergencias {
 
     public List<Emergencia> getEmergencias() {
         return emergencias;
-    }
-
-    public Bomberos getBomberos() {
-        return bomberos;
-    }
-
-    public Ambulancia getAmbulancia() {
-        return ambulancia;
-    }
-
-    public Policia getPolicia() {
-        return policia;
     }
 
     @Override
