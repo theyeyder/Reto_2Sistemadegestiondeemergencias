@@ -36,4 +36,9 @@ package sistemas;
             this.paramedicosDisponibles = paramedicosDisponibles;
         }
     }
+    
+    public void{  
+***
+    }
+
 
