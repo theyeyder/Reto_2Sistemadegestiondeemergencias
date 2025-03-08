@@ -15,7 +15,7 @@ package sistemas;
             if (emergencia.getTipo().equals("Incendio")) {
                 System.out.println("Atendiendo incendio en " + emergencia.getUbicacion());
                 camionesDisponibles--;
-                personalDisponible -= 3;
+                personalDisponible -= 50;
             }
         }
     
