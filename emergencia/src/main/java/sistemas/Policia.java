@@ -15,7 +15,7 @@ package sistemas;
             if (emergencia.getTipo().equals("Robo")) {
                 System.out.println("Atendiendo robo en " + emergencia.getUbicacion());
                 unidadesDisponibles--;
-                oficialesDisponibles -= 2;
+                oficialesDisponibles -= 50;
             }
         }
     

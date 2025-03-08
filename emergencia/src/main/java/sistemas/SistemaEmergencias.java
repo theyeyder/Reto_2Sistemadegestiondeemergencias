@@ -44,7 +44,7 @@ public class SistemaEmergencias {
     }
 
     public void mostrarEstadisticas() {
-        System.out.println("Estadísticas del día:");
+        System.out.println("Estadísticas Sistema de emergencia del día:");
         System.out.println("Emergencias registradas: " + emergencias.size());
         System.out.println("Camiones de bomberos disponibles: " + bomberos.getCamionesDisponibles());
         System.out.println("Ambulancias disponibles: " + ambulancia.getAmbulanciasDisponibles());

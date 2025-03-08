@@ -6,20 +6,23 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        // Inicialización de servicios
-        Bomberos bomberos = new Bomberos(5, 15); // 5 camiones y 15 bomberos
-        Ambulancia ambulancia = new Ambulancia(3, 6); // 3 ambulancias y 6 paramédicos
-        Policia policia = new Policia(4, 8); // 4 unidades policiales y 8 oficiales
+        // Inicialización de servicios para el sistema de gestion  de emergencias
+        Bomberos bomberos = new Bomberos(50, 50);
+        // Camiones y bomberos disponibles 50 de cada de uno 
+        Ambulancia ambulancia = new Ambulancia(50, 50);
+        // Para ambulancia y Paramedicos 50 disponibles para cada uno
+        Policia policia = new Policia(50, 50);
+        // Los oficiales dispobles y undidades disponibles son 50 para cada quien 
 
         // Creación del sistema de emergencias
         SistemaEmergencias sistema = new SistemaEmergencias(bomberos, ambulancia, policia);
 
-        try ( // Scanner para la entrada del usuario
+        try ( // Scanner para la entrada del usuarios 
                 Scanner scanner = new Scanner(System.in)) {
             int opcion;
 
             do {
-                // Menú de opciones SISTEMA DE EMERGENCIAS 
+                // Menú de opciones Sistemas de Gestion De Emergencias 
                 System.out.println("==========================================");
                 System.out.println("\n Sistema de Gestión de Emergencias Urbanas");
                 System.out.println("==========================================");
@@ -33,11 +36,11 @@ public class Main {
                 System.out.print("Seleccione una opción: ");
                 System.out.println("-->");
                 opcion = scanner.nextInt();
-                scanner.nextLine(); // Limpiar el buffer
+                scanner.nextLine(); // Para limpiar buffer
 
                 switch (opcion) {
                     case 1 -> {
-                        // Registrar Nueva Emergencia
+                        // Registro de  Nuevas Emergencias
                         System.out.println("==============================================");
                         System.out.println("\n Tipos de Emergencias a Prestar Servicio ");
                         System.out.println("==============================================");
@@ -46,7 +49,8 @@ public class Main {
                         System.out.println("3. Robo");
                         System.out.print("Seleccione el tipo de emergencia (1-3): ");
                         int tipoEmergencia = scanner.nextInt();
-                        scanner.nextLine(); // Limpiar el buffer
+                        scanner.nextLine(); // Para limpiar buffer
+
 
                         String tipo = "";
                         switch (tipoEmergencia) {
@@ -61,13 +65,13 @@ public class Main {
                                 continue; // Volver al menú principal
                             }
                         }
-                  
-                        System.out.print("Ingrese la ubicación: ");
-                      
+
+                        System.out.print("Ingrese La Ubicación En la Que Se Encuetra: ");
+
                         String ubicacion = scanner.nextLine();
-                        System.out.print("Ingrese el nivel de gravedad (1-10): ");
+                        System.out.print("Ingrese el nivel de gravedad (1 a 10): ");
                         int nivelGravedad = scanner.nextInt();
-                        System.out.print("Ingrese el tiempo de respuesta esperado (en minutos): ");
+                        System.out.print("Ingrese su tiempo de respuestas esperado (en minutos): ");
                         int tiempoRespuesta = scanner.nextInt();
                         scanner.nextLine(); // Limpiar el buffer
 
@@ -86,7 +90,7 @@ public class Main {
 
                     case 3 -> {
                         // Atender Emergencia.....
-                        System.out.println("\n--- Emergencias Registradas ---");
+                        System.out.println("\nEmergencias Registradas:-->");
                         List<Emergencia> emergencias = sistema.getEmergencias();
                         if (emergencias.isEmpty()) {
                             System.out.println("No hay emergencias registradas.");
@@ -111,22 +115,22 @@ public class Main {
                     case 4 -> // Mostrar Estadísticas Del sistema de emergencias 
                         sistema.mostrarEstadisticas();
 
-                        case 5 -> {
-                            // Monitorear Emergencias
-                            System.out.println("\n--- Emergencias Registradas ---");
-                            List<Emergencia> emergenciasMonitoreo = sistema.getEmergencias();
-                            if (emergenciasMonitoreo.isEmpty()) {
-                                System.out.println("No hay emergencias registradas.");
-                            } else {
-                                for (Emergencia e : emergenciasMonitoreo) {
-                                    String estado = e.getEstado();
-                                    if (estado.equals("Atendida")) {
-                                        System.out.println(e + " [ATENDIDA]");
-                                    } else {
-                                        System.out.println(e + " [PENDIENTE]");
-                                    }
+                    case 5 -> {
+                        // Monitorear Emergencias
+                        System.out.println("\n--- Emergencias Registradas ---");
+                        List<Emergencia> emergenciasMonitoreo = sistema.getEmergencias();
+                        if (emergenciasMonitoreo.isEmpty()) {
+                            System.out.println("No hay emergencias registradas.");
+                        } else {
+                            for (Emergencia e : emergenciasMonitoreo) {
+                                String estado = e.getEstado();
+                                if (estado.equals("Atendida")) {
+                                    System.out.println(e + " [ATENDIDA]");
+                                } else {
+                                    System.out.println(e + " [PENDIENTE]");
                                 }
                             }
+                        }
                     }
 
                     case 6 -> {
