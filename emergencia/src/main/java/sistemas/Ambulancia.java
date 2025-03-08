@@ -15,7 +15,7 @@ package sistemas;
             if (emergencia.getTipo().equals("Accidente Vehicular")) {
                 System.out.println("Atendiendo accidente en " + emergencia.getUbicacion());
                 ambulanciasDisponibles--;
-                paramedicosDisponibles -= 2;
+                paramedicosDisponibles -= 50;
             }
         }
     
@@ -29,7 +29,7 @@ package sistemas;
         }
     
         public int getParamedicosDisponibles() {
-            return paramedicosDisponibles;
+            return paramedicosDisponibles;  
         }
     
         public void setParamedicosDisponibles(int paramedicosDisponibles) {
